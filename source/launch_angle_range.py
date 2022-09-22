@@ -10,8 +10,14 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     Returns
     -------
     """
-    phi_range = 0
-    right_side = (1+alpha)*numpy.sqrt(1-(alpha/(1+alpha))*(ve_v0**2))
+    alpha_min = alpha*(1 - tol_alpha)
+    alpha_max = alpha*(1 + tol_alpha)
+
+    right_side_min = (1+alpha_min)*numpy.sqrt(1-(alpha_min/(1+alpha_min))*(ve_v0**2))
+    right_side_max = (1+alpha_max)*numpy.sqrt(1-(alpha_max/(1+alpha_max))*(ve_v0**2))
+    
+    phi_range = [arcsin(10,right_side_min),arcsin(10,right_side_max)]
+    
     return phi_range
 
 def arcsin(n,x):
@@ -46,6 +52,8 @@ def main():
     print("Hello World!, This is the start of assignment #1")
     print(arcsin(10,-.4))
     print(numpy.arcsin(-.4))
+
+    print(launch_angle_range(2.0,0.25,0.02))
 
 if __name__ == "__main__":
     main()
