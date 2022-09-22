@@ -47,13 +47,13 @@ def arcsin(n,x):
 
     return result
 
-def main():
-    """Main function"""
-    print("Hello World!, This is the start of assignment #1")
-    print(arcsin(10,-.4))
-    print(numpy.arcsin(-.4))
+#def main():
+ #   """Main function"""
+  #  print("Hello World!, This is the start of assignment #1")
+   # print(arcsin(10,-.4))
+    #print(numpy.arcsin(-.4))
 
-    print(launch_angle_range(2.0,0.25,0.02))
+#    print(launch_angle_range(2.0,0.25,0.02))
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+ #   main()
