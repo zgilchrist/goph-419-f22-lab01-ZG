@@ -13,8 +13,14 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     alpha_min = alpha*(1 - tol_alpha)
     alpha_max = alpha*(1 + tol_alpha)
 
-    right_side_min = (1+alpha_min)*numpy.sqrt(1-(alpha_min/(1+alpha_min))*(ve_v0**2))
-    right_side_max = (1+alpha_max)*numpy.sqrt(1-(alpha_max/(1+alpha_max))*(ve_v0**2))
+    under_root_min = (1-(alpha_min/(1+alpha_min))*(ve_v0**2)) 
+    under_root_max = (1-(alpha_max/(1+alpha_max))*(ve_v0**2))
+
+    if under_root_max or under_root_min < 0:
+        return "Error, complex value detected, ensure that value under root is positive"
+
+    right_side_min = (1+alpha_min)*numpy.sqrt(under_root_min)
+    right_side_max = (1+alpha_max)*numpy.sqrt(under_root_max)
     
     phi_range = [arcsin(10,right_side_min),arcsin(10,right_side_max)]
     
