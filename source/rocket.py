@@ -26,7 +26,9 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     under_root_min = (1-(alpha_min/(1+alpha_min))*(ve_v0**2)) 
     under_root_max = (1-(alpha_max/(1+alpha_max))*(ve_v0**2))
 
-    if under_root_max or under_root_min < 0:
+    if under_root_max < 0 or under_root_min < 0:
+        print(under_root_max)
+        print(under_root_min)
         return "Error, complex value detected, ensure that value under root is positive"
 
     right_side_min = (1+alpha_min)*numpy.sqrt(under_root_min)
