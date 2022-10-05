@@ -26,10 +26,10 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     under_root_min = (1-(alpha_min/(1+alpha_min))*(ve_v0**2)) 
     under_root_max = (1-(alpha_max/(1+alpha_max))*(ve_v0**2))
 
-    if under_root_max < 0 or under_root_min < 0:
-        print(under_root_max)
-        print(under_root_min)
-        return "Error, complex value detected, ensure that value under root is positive"
+    #if under_root_max < 0 or under_root_min < 0:
+    #    print(under_root_max)
+     #   print(under_root_min)
+      #  return "Error, complex value detected, ensure that value under root is positive"
 
     right_side_min = (1+alpha_min)*numpy.sqrt(under_root_min)
     right_side_max = (1+alpha_max)*numpy.sqrt(under_root_max)
@@ -63,7 +63,6 @@ def arcsin(x):
     while eps_a > eps_s:
         numerator = (2*x)**(2*n)
         denominator = n**2*(factorial_2n(n))/(fact_n**2)
-        #print(denominator)
         term = numerator/denominator
         result += term
         n+=1
@@ -84,15 +83,4 @@ def factorial_2n(n):
     while n>1:
         result*=(n-1)
         n-=1
-        #print(result)
     return result
-#def main():
- #   """Main function"""
-  #  print("Hello World!, This is the start of assignment #1")
-   # print(arcsin(10,-.4))
-    #print(numpy.arcsin(-.4))
-
-#    print(launch_angle_range(2.0,0.25,0.02))
-
-#if __name__ == "__main__":
- #   main()
