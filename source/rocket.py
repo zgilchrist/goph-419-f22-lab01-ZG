@@ -20,12 +20,17 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     array
         A tuple of min and max launch angles
     """
+    
+    #correct alpha for given tolerances for its min and max threshold
     alpha_min = alpha*(1 - tol_alpha)
     alpha_max = alpha*(1 + tol_alpha)
 
     under_root_min = (1-(alpha_min/(1+alpha_min))*(ve_v0**2)) 
     under_root_max = (1-(alpha_max/(1+alpha_max))*(ve_v0**2))
 
+    assert under_root_max > 0 and under_root_min > 0, "Complex value found, ensure values under the root are positive"
+
+    
     #if under_root_max < 0 or under_root_min < 0:
     #    print(under_root_max)
      #   print(under_root_min)
@@ -39,7 +44,7 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     return phi_range
 
 def arcsin(x):
-    """Description of function.
+    """Calculates value of arcsin(x) for a given x value.
     Parameters
     ----------
     x: float
@@ -78,9 +83,19 @@ def arcsin(x):
     return result
 
 def factorial_2n(n):
-    n*=2
-    result = n
-    while n>1:
+    """Helper function for arcsin(x) to find the value of (2n)!
+    Parameters
+    ----------
+    n: int
+        The argument of (2n)!
+    Returns
+    -------
+    int
+        The resultant value of (2n)!
+    """
+    n*=2 #initialize n to be equal to 2n
+    result = n #make initial value equal to n
+    while n>1: #multiply initial n by (n-1) terms repeatably until n reaches 1 to get our result
         result*=(n-1)
         n-=1
     return result
