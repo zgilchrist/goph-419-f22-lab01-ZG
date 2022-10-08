@@ -7,13 +7,6 @@ import rocket
 
 def main():
     """Main function"""
-    ###########
-    #Question 2
-    ###########
-
-    print('Computed value of min and max launch angles respectively:')
-    print(rocket.launch_angle_range(2.0,0.25,0.02))
-    print('\nTrue value of min and max laucnh angles computed using numpy:')
 
     ###########
     #Question 3
