@@ -34,16 +34,18 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     
     return phi_range
 def tester(ve_v0, alpha, tol_alpha):
-    tol = 1e-8
+    tol = 1e-4
     
     if abs(launch_angle_range(ve_v0, alpha, tol_alpha)[0] - rocket.launch_angle_range(ve_v0, alpha, tol_alpha)[0]) < tol:
         print(f"Success for conditions = {ve_v0, alpha, tol_alpha}.")
     else:
         print(f"Failed, expected : {launch_angle_range(ve_v0, alpha, tol_alpha)}, actual : {rocket.launch_angle_range(ve_v0, alpha, tol_alpha)}")
 
-#tester(2.0,0.25,0.02)
+tester(2.0,0.25,0.02)
+tester(3,0.1,.04)
+tester(5,0.1,.04) #supposed to fail here
 
-#test result #1
+#test result launch
 print("Calculated value of angle range: " )
 print(rocket.launch_angle_range(2.0,0.25,0.02))
 print("Expected value or angle range:")
